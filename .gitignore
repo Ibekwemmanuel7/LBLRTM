@@ -28,5 +28,5 @@ data/*.nc
 data/*.bin
 data/TAPE7*
 # Large plot files (optional, if you want to exclude)
-figures/*.tiff
-figures/*.eps
+#figures/*.tiff
+#figures/*.eps
