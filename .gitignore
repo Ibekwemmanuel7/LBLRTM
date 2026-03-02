@@ -1,1 +1,19 @@
 
+# Ignore output files
+outputs/
+
+# Ignore intermediate atmospheric builds
+*_mean.txt
+*_Interp*.txt
+*_comb.txt
+*_Lev*.txt
+
+# Ignore NetCDF ERA5
+*.nc
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
