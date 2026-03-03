@@ -6,6 +6,7 @@
 import numpy as np
 import pandas as pd
 import xarray as xr
+from pathlib import Path
 
 R = 287.0
 g = 9.80665
@@ -52,7 +53,7 @@ def build_profile(case, data_dir):
     else:
         raise ValueError("Invalid case")
 
-    df = pd.read_csv(file_path, delim_whitespace=True)
+    df = pd.read_csv(file_path, sep=r"\s+")
 
     tempC = df["Temp"].values
     pres  = df["Pres"].values
@@ -73,7 +74,7 @@ def build_profile(case, data_dir):
     T_i   = interpolate_to_grid(hgt, tempK, z_new)
     h2o_i = interpolate_to_grid(hgt, wvr, z_new)
 
-    clim = np.loadtxt(clim_path)
+    clim = np.loadtxt(clim_path, skiprows=3)    
     z_clim = clim[:,1]
 
     co2_i = interpolate_to_grid(z_clim, clim[:,6], z_new)
